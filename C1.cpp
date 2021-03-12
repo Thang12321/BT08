@@ -3,7 +3,7 @@ using namespace std;
 int length(char a[])
 {
     int dem=0;
-    for(int i=0;a[i]!='\0';i++)
+    for(int i=0;*(a+i)!='\0';i++)
     {
         dem++;
     }
@@ -13,7 +13,7 @@ string reverse(char a[])
   {
 string b;
   for(int i=0;i<length(a);i++)
-b+=a[length(a)-i-1];
+b+=*(a+length(a)-i-1);
   return b;
   }
 string delete_char(char a[], char c)
@@ -23,7 +23,7 @@ string b;
     for(int i=0;i<length(a);i++)
     {
 if(a[i]==c) continue;
-b+=a[i];
+b+=*(a+i);
     }
 
     return b;
@@ -45,7 +45,7 @@ string truncate(char a[], int n)
 string b;
     for(int i=0;i<n;i++)
     {
-      b+=a[i];
+      b+=*(a+i);
 
     }
     return b;
@@ -54,7 +54,7 @@ bool is_palindrome(char a[])
 {
     for(int i=0;i<length(a)/2;i++)
     {
-        if(a[i]!=a[length(a)-i-1]) return false;
+        if(*(a+i)!=*(a+length(a)-i-1)) return false;
     }
     return true;
 }
@@ -65,7 +65,7 @@ int qua=0;
     {
         if(a[i]==' '&&qua==1) continue;
      qua=0;
-     b+=a[i];
+     b+=*(a+i);
     }
     return b;
 }
@@ -76,7 +76,7 @@ int qua=0;
     {
         if(a[i]==' '&&qua==1) continue;
      qua=0;
-     b=a[i]+b;
+     b=*(a+i)+b;
     }
     return b;
 }
